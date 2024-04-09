@@ -482,7 +482,6 @@ settings.addEventListener('click', function () {
 questionsListBtn.addEventListener('click', function () {
 
   settingsScreen.style.pointerEvents = 'none';
-  settingsScreen.style.opacity = '50%';
 
   //Declaring variables
 
@@ -525,7 +524,6 @@ questionsListBtn.addEventListener('click', function () {
   listScreen.classList.add('list-screen');
   listScreenReturnBtn.classList.add('list-screen-return-button');
   listScreenReturnBtn.innerHTML = '<i class="fa-solid fa-rotate-left"></i>';
-  listScreenReturnBtn.animationName = 'appear';
 
   questionSection.classList.add('question-section');
   questionsUl.classList.add('questions-ul');
@@ -892,11 +890,26 @@ play.addEventListener('click', function () {
           let answerChoice4 = document.createElement('div');
           let isAnswerCorrect = document.createElement('h4');
 
+          questionSelectedDiv.style.opacity = '0%';
+          answerChoice1.style.opacity = '0%';
+          answerChoice2.style.opacity = '0%';
+          answerChoice3.style.opacity = '0%';
+          answerChoice4.style.opacity = '0%';
+
+          setTimeout(() => {
             questionSelectedDiv.style.animationName = 'appear';
             answerChoice1.style.animationName = 'appear';
             answerChoice2.style.animationName = 'appear';
             answerChoice3.style.animationName = 'appear';
             answerChoice4.style.animationName = 'appear';
+            setTimeout(() => {
+              questionSelectedDiv.style.opacity = '100%';
+              answerChoice1.style.opacity = '100%';
+              answerChoice2.style.opacity = '100%';
+              answerChoice3.style.opacity = '100%';
+              answerChoice4.style.opacity = '100%';
+            }, 750);
+          }, 1500);
 
           if (turn === 0) {
             askedQuestion.style.backgroundColor = 'rgb(255, 174, 0)';
@@ -1194,11 +1207,11 @@ play.addEventListener('click', function () {
                   if (player1ScoreNum > player2ScoreNum && player1ScoreNum > player3ScoreNum && player1ScoreNum > player4ScoreNum) {
                     winnerImg.src = './Robots\ Patterns2_Artboard\ 7.png';
                   } else if (player3ScoreNum > player2ScoreNum && player3ScoreNum > player1ScoreNum && player3ScoreNum > player4ScoreNum) {
-                    winnerImg.src = './Robots\ Patterns_Artboard\ 7.png';
-                  } else if (player4ScoreNum > player2ScoreNum && player4ScoreNum > player1ScoreNum && player4ScoreNum > player3ScoreNum) {
                     winnerImg.src = './Robots\ Patterns3_Artboard\ 7.png';
-                  } else if (player2ScoreNum > player1ScoreNum && player2ScoreNum > player3ScoreNum && player2ScoreNum > player4ScoreNum) {
+                  } else if (player4ScoreNum > player2ScoreNum && player4ScoreNum > player1ScoreNum && player4ScoreNum > player3ScoreNum) {
                     winnerImg.src = './Robots\ Patterns4_Artboard\ 7.png';
+                  } else if (player2ScoreNum > player1ScoreNum && player2ScoreNum > player3ScoreNum && player2ScoreNum > player4ScoreNum) {
+                    winnerImg.src = './Robots\ Patterns_Artboard\ 7.png';
                   } else {
                     winnerText.innerText = 'تعادل!';
                     winnerImg.remove();
