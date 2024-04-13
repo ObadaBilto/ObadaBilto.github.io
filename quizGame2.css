@@ -447,6 +447,7 @@ h3:hover {
 }
 
 .answer-area {
+    overflow: auto;
     height: 10vh;
     width: 20vh;
     background-color:black;
@@ -569,9 +570,9 @@ h3:hover {
 }
 
 .answer-display-area {
-    overflow: auto;
-    height: 10vh;
-    width: 15vh;
+    overflow: visible;
+    height: 15vh;
+    width: auto;
     border: 5px white solid;
     text-align: center;
     color: white;
